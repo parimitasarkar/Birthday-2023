@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Birthday Website</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .password-form {
+        text-align: center;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+      }
+
+      .password-form.hide {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .password-input {
+        padding: 10px;
+        font-size: 16px;
+        border: 2px solid #999;
+        border-radius: 10px;
+        outline: none;
+      }
+
+      .submit-button {
+        padding: 10px 20px;
+        background-color: #277c91;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      .error-message {
+        color: red;
+        margin-top: 10px;
+        text-align: center;
+      }
+
+      .gallery {
+        display: none;
+      }
+
+      .gallery-image {
+        margin: 10px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease;
+        cursor: pointer;
+      }
+
+      .gallery-image:hover {
+        transform: scale(1.05);
+      }
+
+      .fade-in {
+        opacity: 0;
+        animation: fadeIn 1s forwards;
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body style="background-color:black;">
+    <div class="container">
+	<img align= "left" src="https://i.gifer.com/VZvx.gif" width="200" height="200">
+      	  <img align= "right" src="https://i.gifer.com/VZvx.gif" width="200" height="200">
+	  <h1 style="font-size:300%;"><center>Happy Birthday!</h1></center>
+	  
+<div style="text-align: center;">
+	  <img src= "https://media.tenor.com/yFTXf00VVN8AAAAC/my-bday-is-in-2-days.gif" width="300" height="300"></div>
+	<br>
+<marquee behavior="scroll" direction="right" scrollamount="7">Ask Parimita, for the password <3</marquee>  
+<!-- Password form -->
+      <div class="password-form" id="password-form">
+        <input type="password" id="password-input" class="password-input" placeholder="Enter password" /><p>
+        <br />
+        <button id="submit-button" class="submit-button">Submit</button>
+        <p id="error-message" class="error-message"></p>
+      </div>
+
+      <!-- Gallery -->
+      <div id="gallery" class="gallery"></div>
+    </div>
+
+    <script>
+      const predefinedPassword = "birthday2023";
+
+     
+      const passwordForm = document.querySelector("#password-form");
+      const passwordInput = document.querySelector("#password-input");
+      const submitButton = document.querySelector("#submit-button");
+
+     
+      submitButton.addEventListener("click", () => {
+        const enteredPassword = passwordInput.value;
+
+        if (enteredPassword === predefinedPassword) {
+          
+          showGallery();
+        } else {
+         
+          showError("Incorrect password. Please try again.");
+        }
+      });
+
+      
+      function showGallery() {
+	  
+        const gallery = document.querySelector("#gallery");
+        const galleryImages = 
+		[
+		
+          "video.mp4",
+        ];
+		
+        
+        let galleryHTML = '';
+        galleryImages.forEach(image => {
+          galleryHTML += `<video width="820" height="440" controls="controls autoplay" source src="C:\Users\SUSMITA\Downloads\abx.mp4" type="video/mp4" />
+</video>`;
+        });
+		
+         gallery.innerHTML = galleryHTML;
+
+       
+        gallery.classList.add('fade-in');
+        gallery.style.display = "block";
+
+     
+        const galleryImagesList = document.querySelectorAll(".gallery-image");
+        galleryImagesList.forEach(image => {
+          image.addEventListener("click", () => {
+            image.style.animation = "rotate 1s linear";
+            setTimeout(() => {
+              image.style.animation = "";
+            }, 1000);
+          });
+        });
+
+    
+        passwordForm.classList.add('hide');
+      }
+
+      function showError(message) {
+        const errorMessage = document.querySelector("#error-message");
+        errorMessage.textContent = message;
+      }
+    </script>
+  </body>
+</html>
+
+<!-- index.html -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Surprise</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Wishing you a very happy birthday!</h1>
+    <div class="color-selector">
+      <p>Pick any colour for some magic ❤️:</p>
+      <input type="color" id="colorPicker">
+    </div>
+  </header><br>
+  <main>
+  	    <img align="right" src= "https://png.pngtree.com/png-clipart/20230218/ourmid/pngtree-beautiful-colorful-birthday-balloons-png-image_6603882.png" >
+    <div id="message"></div>
+    <div class="animation" id="animation">
+      <!-- Special birthday animation goes here -->
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
+<style>
+body {
+  font-family: Garamond, Papyrus;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #3790a6;
+  padding: 20px;
+  text-align: center;
+}
+
+.main {
+  padding: 20px;
+}
+
+.color-selector {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Special styling for the birthday animation */
+animation {
+  text-align: center;
+  margin-top: 50px;
+  /* Add styles for the animation here */
+}
+</style>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+  const recipientName = "cuddles"; // Replace with the recipient's name
+  const personalizedMessages = 
+  [
+  
+    ` Happy Birthday
+	
+Roses are red,
+Violets are blue,
+Sugar is sweet,
+Happy birthday to you,
+
+Another year older,
+But as cool as can be,
+May your day be fantastic,
+Just like you to me!
+
+So blow out the candles,
+And make a great wish,
+You deserve all the joy,
+And all the cake, like this!
+
+Happy birthday, dear,
+With love and good cheer,
+Here's to many more,
+In the coming year!
+
+By Parimita Sarkar
+
+`,
+    // Additional personalized messages can be added here
+  ];
+
+  // Randomly select a personalized message to display
+  const randomIndex = Math.floor(Math.random() * personalizedMessages.length);
+  const selectedMessage = personalizedMessages[randomIndex];
+  document.getElementById("message").innerText = selectedMessage;
+
+  // Listen for color selection and update the page's color
+  const colorPicker = document.getElementById("colorPicker");
+  colorPicker.addEventListener("input", function() {
+    const selectedColor = colorPicker.value;
+    document.body.style.backgroundColor = selectedColor;
+  });
+
+  // Special birthday animation implementation (you can add your own animation or interactive element here)
+  const animationElement = document.getElementById("animation");
+  // Add your personalized animation implementation here
+
+  // For example, you can create a confetti effect using a library like "confetti-js":
+  
+  confetti({
+    particleCount: 100,
+    spread: 70,
+    origin: { y: 0.6 }
+  });
+ 
+
+  // Or you can display a custom birthday message animation:
+  
+  animationElement.bday.HTML = `<img src="C:\Users\SUSMITA\Downloads\birthday-happy.gif" alt="Happy Birthday Animation">`;
+  
+}); 
+</script>
